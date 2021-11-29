@@ -68,6 +68,10 @@ main button{
     font-size: 16px;
 }
 
+.sbarrato{
+    text-decoration: line-through;
+}
+
 .lista .croce{
     font-size: 20px;
     cursor: pointer;

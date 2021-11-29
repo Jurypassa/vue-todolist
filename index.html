@@ -22,17 +22,18 @@
         <main>
             <!-- inizio sezione inserimento dati -->
             <section>
-                <input type="text" placeholder="Inserisci il testo">
-                <button>Aggiungi</button>
+                <input type="text" placeholder="Inserisci il testo" v-model="testoInserito"
+                @keyup.enter="aggiunta">
+                <button @click="aggiunta()">Aggiungi</button>
             </section>
             <!-- / sezione inserimento dati -->
 
             <!-- inizio sezione lista -->
             <section class="lista">
                 <ul>
-                    <li>
-                        <span class="testo">Fare la spesa</span>
-                        <i class="fas fa-times croce"></i>
+                    <li v-for="(todo, index) in todos">
+                        <span class="testo" :class="{ sbarrato: todo.done}" @click="inversione(index)">{{todo.text}}</span>
+                        <i class="fas fa-times croce" @click="rimozione"></i>
                     </li>
                 </ul>
 
